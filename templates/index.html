@@ -15,7 +15,6 @@
         @import "https://fonts.googleapis.com/css?family=Alegreya+SC|Merriweather|Tangerine";
 
         body {
-            background: #FCFAF2;
             font-family: "Merriweather", serif;
         }
     </style>
@@ -51,6 +50,11 @@
                 timegridDisplayPrimaryTime: function (time) {
                     return time.hour + ':00';
                 },
+            },
+            theme: {
+                'common.backgroundColor': '#FCFAF2',
+                'week.timegridLeft.backgroundColor': '#FCFAF2',
+                'week.timegridLeft.fontSize': '13px',
             },
         });
 
