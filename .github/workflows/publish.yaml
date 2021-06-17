@@ -1,0 +1,17 @@
+name: Build and Deploy
+on:
+  push:
+    branches: [master]
+jobs:
+  build-n-deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run
+        run: cargo run --release
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./publish
+          cname: available.aqd.is

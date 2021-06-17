@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+        name="viewport">
+
+    <title>calendar(&me);</title>
+
+    <link href="https://unpkg.com/normalize.css@8.0.1/normalize.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui-calendar/v1.13.0/tui-calendar.css" />
+    <style>
+        @import "https://fonts.googleapis.com/css?family=Alegreya+SC|Merriweather|Tangerine";
+
+        body {
+            background: #FCFAF2;
+            font-family: "Merriweather", serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="calendar"></div>
+
+    <script src="https://uicdn.toast.com/tui.code-snippet/v1.5.2/tui-code-snippet.min.js"></script>
+    <script src="https://uicdn.toast.com/tui-calendar/v1.13.0/tui-calendar.js"></script>
+
+    <script>
+        var cal = new tui.Calendar('#calendar', {
+            defaultView: 'week',
+            taskView: false,
+            // no allday
+            scheduleView: ['time'],
+            isReadOnly: true,
+            week: {
+                // no weekend
+                workweek: true,
+                hourStart: 8,
+                hourEnd: 23,
+            },
+            calendars: [
+                {
+                    id: '1',
+                    bgColor: '#58B2DC',
+                    borderColor: '#828282',
+                }
+            ],
+            template: {
+                timegridDisplayPrimaryTime: function (time) {
+                    return time.hour + ':00';
+                },
+            },
+        });
+
+        cal.setDate(new Date(''));
+
+        cal.createSchedules([]);
+    </script>
+</body>
+
+</html>
