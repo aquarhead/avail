@@ -15,8 +15,9 @@ fn main() -> Result<()> {
         date = Some(day.to_string());
       }
 
-      let start = format!("{} {}", day, parts.next().unwrap());
-      let end = format!("{} {}", day, parts.next().unwrap());
+      // ref https://github.com/nhn/tui.calendar/issues/446#issuecomment-559125865
+      let start = format!("{}T{}:00+00:00", day, parts.next().unwrap());
+      let end = format!("{}T{}:00+00:00", day, parts.next().unwrap());
 
       let sched = format!(include_str!("../templates/schedule.tmpl"), start = start, end = end);
 
